@@ -1,10 +1,13 @@
-import { parseAppSegmentConfig } from 'next/dist/build/segment-config/app/app-segment-config'
+
+import axios from 'axios';
 import React from 'react'
 
 export default async function page({params}) {
     const {id} = await params;
-    console.log(id);
+    const res = await axios.get(`http://localhost:4000/products/${id}`)
+    const data =  res.data
+
   return (
-    <div>page</div>
+    <div>page {data.title}</div>
   )
 }
