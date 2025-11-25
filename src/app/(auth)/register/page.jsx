@@ -2,6 +2,7 @@
 import AuthContext from "@/Provider/AuthContext";
 import React, { useContext } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function Page() {
   const { createUser, googleSignIn } = useContext(AuthContext);
@@ -14,20 +15,33 @@ export default function Page() {
     const password = e.target.password.value;
 
     const result = await createUser(email, password);
+    const idToken = await result.user.getIdToken();
+    await fetch("/api/setCookie", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ token: idToken }),
+  });
 
     router.push("/");
   };
 
   const handleGoogleSignIn = async () => {
     const result = await googleSignIn();
-    console.log(result.user);
+    const idToken = await result.user.getIdToken();
+    await fetch("/api/setCookie", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ token: idToken }),
+  });
 
-    router.push("/");   
+
+    router.push("/");
   };
 
   return (
     <div className="mt-10">
       <div className="card mx-auto bg-base-100 w-full max-w-sm shadow-2xl">
+        <h1 className='text-4xl my-3 text-center font-bold'>Register Now!</h1>
         <div className="card-body">
           <form onSubmit={handleCreateUser}>
             <fieldset className="fieldset">
@@ -57,7 +71,9 @@ export default function Page() {
           >
             Login with Google
           </button>
+          <p>Already have an account? <Link className="text-green-300 underline" href='/login'>Login Now</Link></p>
         </div>
+
       </div>
     </div>
   );

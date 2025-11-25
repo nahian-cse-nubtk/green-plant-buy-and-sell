@@ -1,14 +1,25 @@
 "use client"
 import AuthContext from "@/Provider/AuthContext";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useContext } from "react";
 
 export default function Navbar() {
-  const {user} = useContext(AuthContext)
+  const {user,signOutUser} = useContext(AuthContext)
 
+  const handleLogout =()=>{
+    signOutUser()
+    .then(()=>{
+      fetch("/api/logout", {
+    method: "POST",
+  });
+  window.location.href = "/login";
+    })
+
+  }
   const links =<>
-   <Link href='/'>Home</Link>
-   <Link href='/'>Home</Link>
+   <Link className="mr-3" href='/'>Home</Link>
+   <Link href='/addProduct'>Add Product</Link>
   </>
   return (
     <div>
@@ -49,7 +60,7 @@ export default function Navbar() {
         <div className="navbar-end">
 
           {
-            user?<button className="btn">Logout</button>: <div>
+            user?<button onClick={handleLogout} className="btn">Logout</button>: <div>
               <Link className="btn mr-3" href='/login'>Login</Link>
             <Link className="btn" href='/register'>Register</Link>
 

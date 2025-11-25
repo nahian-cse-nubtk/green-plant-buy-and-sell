@@ -2,6 +2,7 @@
 import AuthContext from '@/Provider/AuthContext'
 import React, { useContext } from 'react'
 import { useRouter } from "next/navigation";
+import Link from 'next/link';
 
 export default function page() {
   const {signInUser,googleSignIn } = useContext(AuthContext)
@@ -10,19 +11,36 @@ export default function page() {
     e.preventDefault();
     const email = e.target.email.value;
     const password =e.target.password.value;
-    signInUser(email,password);
+    signInUser(email,password)
+    .then(result=>{
+    const idToken = result.user.getIdToken();
+    fetch("/api/setCookie", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ token: idToken }),
+  });
+
+    })
+
     router.push("/");
 
   }
   const handleGoogleSignIn = async () => {
     const result = await googleSignIn();
-    console.log(result.user);
+
+    const idToken = await result.user.getIdToken();
+    await fetch("/api/setCookie", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ token: idToken }),
+  });
 
     router.push("/");
   };
   return (
     <div className='mt-10'>
        <div className="card mx-auto   bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+        <h1 className='text-4xl my-3 text-center font-bold'>Login Now!</h1>
       <div className="card-body">
         <form onSubmit={handleLogin}>
           <fieldset className="fieldset">
@@ -40,6 +58,7 @@ export default function page() {
           >
             Login with Google
           </button>
+          <p>Don't have an account? <Link className="text-green-300 underline" href='/register'>Register Now</Link></p>
       </div>
     </div>
     </div>
