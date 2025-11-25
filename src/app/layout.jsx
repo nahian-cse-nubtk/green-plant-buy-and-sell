@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from '../Components/Navbar'
 import Provider from "@/Provider/Provider";
 import { Toaster } from "react-hot-toast";
+import Footer from "@/Components/Footer";
 
 
 export const metadata = {
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
         {children}
         </Provider>
         <Toaster/>
+        <Footer></Footer>
       </body>
 
     </html>

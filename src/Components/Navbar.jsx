@@ -20,7 +20,8 @@ export default function Navbar() {
   const links =<>
    <Link className="mr-3" href='/'>Home</Link>
    <Link className="mr-3" href='/addProduct'>Add Product</Link>
-   <Link href='/allProducts'>All Plant</Link>
+   <Link className="mr-3" href='/allProducts'>All Plant</Link>
+   <Link href='/manageProducts'>Manage Products</Link>
   </>
   return (
     <div>
