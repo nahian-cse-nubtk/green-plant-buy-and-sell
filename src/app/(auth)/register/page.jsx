@@ -3,6 +3,7 @@ import AuthContext from "@/Provider/AuthContext";
 import React, { useContext } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import toast from "react-hot-toast";
 
 export default function Page() {
   const { createUser, googleSignIn } = useContext(AuthContext);
@@ -21,7 +22,7 @@ export default function Page() {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ token: idToken }),
   });
-
+    toast('Registration Successful')
     router.push("/");
   };
 
@@ -34,7 +35,7 @@ export default function Page() {
     body: JSON.stringify({ token: idToken }),
   });
 
-
+    toast('Login Successful')
     router.push("/");
   };
 

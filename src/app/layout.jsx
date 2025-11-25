@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from '../Components/Navbar'
 import Provider from "@/Provider/Provider";
+import { Toaster } from "react-hot-toast";
 
 
 export const metadata = {
@@ -18,6 +19,7 @@ export default function RootLayout({ children }) {
         <Navbar/>
         {children}
         </Provider>
+        <Toaster/>
       </body>
 
     </html>

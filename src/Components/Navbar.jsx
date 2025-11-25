@@ -19,7 +19,8 @@ export default function Navbar() {
   }
   const links =<>
    <Link className="mr-3" href='/'>Home</Link>
-   <Link href='/addProduct'>Add Product</Link>
+   <Link className="mr-3" href='/addProduct'>Add Product</Link>
+   <Link href='/allProducts'>All Plant</Link>
   </>
   return (
     <div>
