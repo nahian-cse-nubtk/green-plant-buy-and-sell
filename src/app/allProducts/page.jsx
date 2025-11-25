@@ -6,17 +6,25 @@ import React, { useEffect, useState } from "react";
 export default function page() {
 
     const [products, setProducts] =useState([])
+    const [productsData, setProductsData] =useState([])
 
         useEffect(()=>{
             axios.get('http://localhost:4000/products')
             .then(res=>{
                 setProducts(res.data)
+                setProductsData(res.data)
             })
         },[])
 
         const handleSearch =(e)=>{
             const searchValue = e.target.value;
-            console.log(searchValue);
+            const filteredData = productsData.filter(product=>product.title.toLowerCase().includes(searchValue.toLowerCase()))
+            if(filteredData){
+                setProducts(filteredData)
+            }
+            else{
+                setProducts(productsData)
+            }
         }
 
   return (
