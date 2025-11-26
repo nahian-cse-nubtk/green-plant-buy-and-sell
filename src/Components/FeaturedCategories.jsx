@@ -33,7 +33,7 @@ export default function FeaturedCategories() {
             Perfect for home & office. Fresh greenery for your space.
           </p>
           <Link href='/allProducts'>
-            <button className="mt-4 btn bg-green-100  text-green-700 font-medium hover:bg-green-200">
+            <button className="mt-4 btn bg-green-700  text-white font-medium hover:bg-green-600">
             Explore Plants
           </button>
           </Link>
@@ -55,7 +55,7 @@ export default function FeaturedCategories() {
             Hardy, sun-loving plants suitable for outdoor gardens.
           </p>
         <Link href='/allProducts'>
-            <button className="mt-4 btn bg-green-100 text-green-700 font-medium hover:bg-green-200">
+            <button className="mt-4 btn bg-green-700  text-white font-medium hover:bg-green-600">
             Explore Plants
           </button>
         </Link>
@@ -77,7 +77,7 @@ export default function FeaturedCategories() {
             Low-maintenance plants ideal for beginners & busy lifestyles.
           </p>
           <Link href='/allProducts'>
-          <button className="mt-4 btn bg-green-100 text-green-700 font-medium hover:bg-green-200">
+          <button className="mt-4 btn bg-green-700  text-white font-medium hover:bg-green-600">
             Explore Plants
           </button>
 

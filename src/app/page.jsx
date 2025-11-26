@@ -1,7 +1,9 @@
 import Banner from "@/Components/Banner";
+import CustomerTestimonial from "@/Components/CustomerTestimonial";
 import FeaturedCategories from "@/Components/FeaturedCategories";
 import LatestProducs from "@/Components/LatestProducs";
-import Image from "next/image";
+import WhyChooseUs from "@/Components/WhyChooseUs";
+
 
 export default function Home() {
   return (
@@ -25,12 +27,12 @@ export default function Home() {
 
       {/* Why Choose Us? */}
       <div>
-
+      <WhyChooseUs></WhyChooseUs>
       </div>
       {/* Customer Testimonials */}
 
       <div>
-
+        <CustomerTestimonial></CustomerTestimonial>
       </div>
 
     </div>

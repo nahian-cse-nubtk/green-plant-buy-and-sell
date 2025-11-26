@@ -28,12 +28,12 @@ export default function page() {
         }
 
   return (
-    <div>
-      <h1 className="text-4xl my-3 font-bold text-center">
+    <div className="bg-green-50">
+      <h1 className="text-4xl pt-10 pb-3 font-bold text-center ">
         Explore All Plants
       </h1>
-      <p className="text-xl text-center mb-3">
-        Discover our complete collection of fresh, healthy plants ready to bring
+      <p className="text-center mb-3">
+        Discover our complete collection of fresh, healthy plants ready to bring <br></br>
         natural beauty into your home, office, or garden.
       </p>
       <div className="my-7 flex justify-end mr-3">
@@ -57,7 +57,7 @@ export default function page() {
           <input onChange={handleSearch} name="searchValue" type="search" required placeholder="Search" />
         </label>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-7 m-5">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-7 p-5">
         {
             products.map(product=><ProductCard key={product._id} product={product} />)
         }

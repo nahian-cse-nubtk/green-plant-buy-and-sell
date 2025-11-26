@@ -28,7 +28,7 @@ export default function page() {
 
     }
   return (
-    <div className="overflow-x-auto">
+    <div className="overflow-x-auto bg-green-50">
         <h1 className='text-3xl font-bold py-5 text-center'>Your Products</h1>
   <table className="table table-zebra">
     {/* head */}
