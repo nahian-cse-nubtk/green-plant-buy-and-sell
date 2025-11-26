@@ -1,9 +1,10 @@
 "use client";
 import AuthContext from "@/Provider/AuthContext";
 import Link from "next/link";
-import { useRouter } from "next/router";
+
 import React, { useContext } from "react";
-import { FaAngleDown } from "react-icons/fa";
+
+import ProfileDropdown from "./ProfileDropdown";
 
 export default function Navbar() {
   const { user, signOutUser } = useContext(AuthContext);
@@ -34,7 +35,7 @@ export default function Navbar() {
     </>
   );
   return (
-    <div className="sticky top-0">
+    <div className="sticky top-0 ">
       <div className="navbar  bg-linear-to-r from-green-600 from-10% via-green-500 via-30% to-emerald-400 to-90% shadow-sm">
         <div className="navbar-start">
           <div className="dropdown">
@@ -70,33 +71,15 @@ export default function Navbar() {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end">
-          {user ? (
-            <div className="dropdown dropdown-bottom dropdown-end">
-              <div tabIndex={0} role="button" className="btn m-1">
-                {user?.name} <FaAngleDown/>
-              </div>
-              <ul
-                tabIndex="-1"
-                className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
-              >
-                <li>
-                  <a>Item 1</a>
-                </li>
-                <li>
-                  <a>Item 2</a>
-                </li>
-              </ul>
-            </div>
-          ) : (
-            <div>
-              <Link className="btn mr-3" href="/login">
+          {user ? <ProfileDropdown user={user} handleLogout={handleLogout}/> :<div>
+              <Link className="mr-3 px-3 py-3 bg-green-700 text-white hover:bg-green-800 rounded-md transition" href="/login">
                 Login
               </Link>
-              <Link className="btn" href="/register">
+              <Link className="px-3 py-3 bg-green-700 text-white hover:bg-green-800 rounded-md transition" href="/register">
                 Register
               </Link>
             </div>
-          )}
+          }
         </div>
       </div>
     </div>

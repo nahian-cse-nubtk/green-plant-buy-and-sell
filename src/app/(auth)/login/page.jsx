@@ -20,26 +20,30 @@ export default function page() {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ token: idToken }),
   });
-
-    })
-    toast('Login Successful')
+  toast('Login Successful')
     router.push("/");
 
-  }
-  const handleGoogleSignIn = async () => {
-    const result = await googleSignIn();
+    })
 
-    const idToken = await result.user.getIdToken();
-    await fetch("/api/setCookie", {
+
+  }
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+    .then(result=>{
+      const idToken = result.user.getIdToken();
+    fetch("/api/setCookie", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ token: idToken }),
   });
     toast('Login Successful')
     router.push("/");
+    })
+
+
   };
   return (
-    <div className='mt-10'>
+    <div className='my-10'>
        <div className="card mx-auto   bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
         <h1 className='text-4xl my-3 text-center font-bold'>Login Now!</h1>
       <div className="card-body">

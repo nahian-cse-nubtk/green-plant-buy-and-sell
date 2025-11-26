@@ -9,27 +9,31 @@ export default function Page() {
   const { createUser, googleSignIn } = useContext(AuthContext);
   const router = useRouter();
 
-  const handleCreateUser = async (e) => {
+  const handleCreateUser =  (e) => {
     e.preventDefault();
 
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    const result = await createUser(email, password);
-    const idToken = await result.user.getIdToken();
-    await fetch("/api/setCookie", {
+    createUser(email, password)
+    .then(result=>{
+      const idToken = result.user.getIdToken();
+    fetch("/api/setCookie", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ token: idToken }),
   });
     toast('Registration Successful')
     router.push("/");
+    })
+
   };
 
-  const handleGoogleSignIn = async () => {
-    const result = await googleSignIn();
-    const idToken = await result.user.getIdToken();
-    await fetch("/api/setCookie", {
+  const handleGoogleSignIn =() => {
+    googleSignIn()
+    .then(result=>{
+      const idToken =result.user.getIdToken();
+     fetch("/api/setCookie", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ token: idToken }),
@@ -37,10 +41,13 @@ export default function Page() {
 
     toast('Login Successful')
     router.push("/");
+
+    })
+
   };
 
   return (
-    <div className="mt-10">
+    <div className="my-10">
       <div className="card mx-auto bg-base-100 w-full max-w-sm shadow-2xl">
         <h1 className='text-4xl my-3 text-center font-bold'>Register Now!</h1>
         <div className="card-body">
