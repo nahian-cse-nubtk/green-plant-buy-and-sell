@@ -11,5 +11,5 @@ export function middleware(request) {
 }
 
 export const config = {
-  matcher: ["/addProduct/:path*"],
+  matcher: ["/addProduct/:path*","/manageProducts/:path*"],
 };
