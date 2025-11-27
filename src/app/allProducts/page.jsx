@@ -9,7 +9,7 @@ export default function page() {
     const [productsData, setProductsData] =useState([])
 
         useEffect(()=>{
-            axios.get('http://localhost:4000/products')
+            axios.get('https://green-world-rose.vercel.app/products')
             .then(res=>{
                 setProducts(res.data)
                 setProductsData(res.data)

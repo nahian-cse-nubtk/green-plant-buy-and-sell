@@ -21,7 +21,7 @@ export default function page() {
       title,shortDescription,fullDescription,price,image,sellerName,
       sellerEmail,sellerPhoneNo
     }
-    axios.post('http://localhost:4000/products',productInfo)
+    axios.post('https://green-world-rose.vercel.app/products',productInfo)
     .then(res=>{
       if(res.data.insertedId){
         toast('Product Add Successful')

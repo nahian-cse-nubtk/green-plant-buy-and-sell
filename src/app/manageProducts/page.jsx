@@ -11,13 +11,13 @@ export default function page() {
     const {user} =useContext(AuthContext)
     const [products, setProducts] =useState([])
     useEffect(()=>{
-        axios.get(`http://localhost:4000/products?email=${user?.email}`)
+        axios.get(`https://green-world-rose.vercel.app/products?email=${user?.email}`)
         .then(res=>{
             setProducts(res.data)
         })
     },[user?.email])
     const handleDelete =(id)=>{
-        axios.delete(`http://localhost:4000/products/${id}`)
+        axios.delete(`https://green-world-rose.vercel.app/products/${id}`)
         .then(res=>{
             if(res.data.deletedCount){
                 const filteredData = products.filter(product=>product._id!==id)
@@ -31,7 +31,7 @@ export default function page() {
   return (
     <div className="overflow-x-auto bg-green-50">
         <h1 className='text-3xl font-bold py-5 text-center'>Your Products</h1>
-        
+
   <table className="table table-zebra">
     {/* head */}
     <thead>

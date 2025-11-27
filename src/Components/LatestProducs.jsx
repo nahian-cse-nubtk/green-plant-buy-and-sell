@@ -3,7 +3,7 @@ import React from 'react'
 import ProductCard from './ProductCard';
 
 export default async function LatestProducs() {
-        const res = await axios.get('http://localhost:4000/latestProducts')
+        const res = await axios.get('https://green-world-rose.vercel.app/latestProducts')
         const products =res.data;
   return (
    <section className="py-14 bg-green-50">
