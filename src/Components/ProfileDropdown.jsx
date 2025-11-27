@@ -22,7 +22,7 @@ export default function ProfileDropdown({user,handleLogout}) {
 
       {/* Dropdown */}
       {open && (
-        <div className="absolute right-0 mt-2 w-80 bg-green-50 shadow-lg rounded-xl border -z-20">
+        <div className="absolute right-0 mt-2 w-90 bg-green-50 shadow-lg rounded-xl border -z-20">
           <div className="p-3 border-b">
             <p className="font-medium text-gray-800">{user?.displayName}</p>
             <p className="text-gray-500 text-sm">{user?.email}</p>

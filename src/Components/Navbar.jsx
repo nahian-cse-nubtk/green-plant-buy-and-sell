@@ -64,7 +64,7 @@ export default function Navbar() {
             </ul>
           </div>
           <Link href="/" className="btn btn-ghost text-xl">
-            Green World
+            🌿Green World
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
