@@ -27,9 +27,11 @@ export default function page() {
         })
 
     }
+
   return (
     <div className="overflow-x-auto bg-green-50">
         <h1 className='text-3xl font-bold py-5 text-center'>Your Products</h1>
+        
   <table className="table table-zebra">
     {/* head */}
     <thead>
@@ -45,8 +47,7 @@ export default function page() {
     </thead>
     <tbody>
       {/* row 1 */}
-      {
-        products.map((product,i)=><tr key={product._id}>
+      { products&&products.map((product,i)=><tr key={product._id}>
         <th>{i+1}</th>
         <td>{product.title}</td>
         <td>{product.shortDescription}</td>

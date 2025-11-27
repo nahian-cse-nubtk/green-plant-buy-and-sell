@@ -26,8 +26,8 @@ Deployment: Vercel / Netlify / Firebase
 
 🛠️ Setup & Installation
 1. Clone the repository
-git clone https://github.com/your-username/green-world.git
-cd green-world
+https://github.com/nahian-cse-nubtk/green-plant-buy-and-sell.git
+
 
 2. Install dependencies
 npm install
@@ -55,31 +55,7 @@ npm run dev
 Now open:
 👉 http://localhost:3000
 
-📁 Recommended Folder Structure
-green-world/
-│
-├── app/
-│   ├── layout.js
-│   ├── page.js
-│   ├── allProducts/
-│   ├── addProduct/
-│   └── product/[id]/
-│
-├── components/
-│   ├── Banner.jsx
-│   ├── ProductCard.jsx
-│   └── Navbar.jsx
-│
-├── context/
-│   └── AuthProvider.jsx
-│
-├── firebase/
-│   └── firebase.config.js
-│
-├── public/
-│   └── favicon.ico
-│
-└── README.md
+
 
 📜 Scripts
 
