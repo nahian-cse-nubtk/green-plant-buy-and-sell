@@ -7,7 +7,9 @@ export function middleware(request) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
 
-  return NextResponse.next();
+   const res = NextResponse.next();
+  res.headers.set("Cache-Control", "no-store");
+  return res;
 }
 
 export const config = {

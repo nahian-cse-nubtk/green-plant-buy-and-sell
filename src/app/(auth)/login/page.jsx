@@ -13,7 +13,7 @@ export default function page() {
     const email = e.target.email.value;
     const password =e.target.password.value;
     signInUser(email,password)
-    .then(result=>{
+    .then(async(result)=>{
     const idToken = result.user.getIdToken();
     fetch("/api/setCookie", {
     method: "POST",
@@ -21,7 +21,8 @@ export default function page() {
     body: JSON.stringify({ token: idToken }),
   });
   toast('Login Successful')
-    router.push("/");
+    await new Promise(r => setTimeout(r, 300));
+      router.replace('/');
 
     })
 
@@ -29,7 +30,7 @@ export default function page() {
   }
   const handleGoogleSignIn = () => {
     googleSignIn()
-    .then(result=>{
+    .then(async(result)=>{
       const idToken = result.user.getIdToken();
     fetch("/api/setCookie", {
     method: "POST",
@@ -37,7 +38,8 @@ export default function page() {
     body: JSON.stringify({ token: idToken }),
   });
     toast('Login Successful')
-    router.push("/");
+    await new Promise(r => setTimeout(r, 300));
+      router.replace('/');
     })
 
 
