@@ -5,6 +5,7 @@ import Link from "next/link";
 
 export default function ProfileDropdown({user,handleLogout}) {
   const [open, setOpen] = useState(false);
+  console.log(user)
 
   return (
     <div className="relative z-50">
@@ -13,11 +14,13 @@ export default function ProfileDropdown({user,handleLogout}) {
         onClick={() => setOpen(!open)}
         className="flex items-center gap-2 p-2 rounded-full hover:bg-gray-100 transition"
       >
-        <img
-          src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+        {
+          user&&<img
+          src={user.photoURL || "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"}
           alt="profile"
           className="w-9 h-9 rounded-full border"
         />
+        }
       </button>
 
       {/* Dropdown */}

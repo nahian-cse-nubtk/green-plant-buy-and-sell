@@ -3,6 +3,9 @@
 A modern plant marketplace built with Next.js, Tailwind CSS, and Firebase.
 Users can browse plants, view details, buy/sell items, and manage listings with a clean and responsive UI.
 
+Live Site Link: https://green-plant-buy-and-sell-client.vercel.app/
+Server Site Link: https://green-world-rose.vercel.app/
+
 🚀 Features
 
 Browse all plants with images, price & details
