@@ -42,8 +42,8 @@ export default function Page() {
         Discover our complete collection of fresh, healthy plants ready to bring <br></br>
         natural beauty into your home, office, or garden.
       </p>
-      <div className="my-7 flex justify-end mr-3">
-        <label className="input">
+      <div className="my-7 flex justify-center ">
+        <label className="input border-green-800 border-2">
           <svg
             className="h-[1em] opacity-50"
             xmlns="http://www.w3.org/2000/svg"

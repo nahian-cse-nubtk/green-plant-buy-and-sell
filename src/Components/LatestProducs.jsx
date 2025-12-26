@@ -6,7 +6,7 @@ export default async function LatestProducs() {
         const res = await axios.get('https://green-world-rose.vercel.app/latestProducts')
         const products =res.data;
   return (
-   <section className="py-14 bg-green-50">
+   <section className=" bg-green-50">
   <div className="max-w-6xl mx-auto px-4">
     {/* Section Header */}
     <div className="text-center mb-10">

@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function CustomerTestimonial() {
   return (
-    <section className="py-16 bg-green-50">
+    <section className="pb-10 bg-green-50">
   <div className="max-w-6xl mx-auto px-6 text-center">
     <h2 className="text-3xl md:text-4xl font-bold text-green-800 mb-4">
       What Our Customers Say

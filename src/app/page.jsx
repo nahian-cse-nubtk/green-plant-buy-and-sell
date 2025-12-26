@@ -1,6 +1,7 @@
 import Banner from "@/Components/Banner";
 import CustomerTestimonial from "@/Components/CustomerTestimonial";
 import FeaturedCategories from "@/Components/FeaturedCategories";
+import GreenExperts from "@/Components/GreenExperts";
 import LatestProducs from "@/Components/LatestProducs";
 import WhyChooseUs from "@/Components/WhyChooseUs";
 
@@ -28,6 +29,10 @@ export default function Home() {
       {/* Why Choose Us? */}
       <div>
       <WhyChooseUs></WhyChooseUs>
+      </div>
+      {/* green experts section */}
+      <div>
+        <GreenExperts></GreenExperts>
       </div>
       {/* Customer Testimonials */}
 

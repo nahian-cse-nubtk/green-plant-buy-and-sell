@@ -2,12 +2,12 @@ import React from 'react'
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-16 bg-green-50">
+    <section className="py-10 bg-green-50">
   <div className="max-w-6xl mx-auto px-6 text-center">
-    <h2 className="text-3xl font-bold text-green-700 mb-6">
+    <h2 className="text-3xl font-bold text-green-700 mb-4">
       Why Choose Us?
     </h2>
-    <p className="text-gray-600 mb-12 max-w-2xl mx-auto">
+    <p className="text-gray-600 mb-10 max-w-2xl mx-auto">
       We bring nature closer to your home with healthy plants,
       trusted service, and eco-friendly practices.
     </p>
