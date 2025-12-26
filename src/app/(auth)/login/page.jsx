@@ -4,8 +4,10 @@ import React, { useContext } from 'react'
 import { useRouter } from "next/navigation";
 import Link from 'next/link';
 import toast from 'react-hot-toast';
+import Image from "next/image";
+import { FcGoogle } from "react-icons/fc";
 
-export default function page() {
+export default function Page() {
   const {signInUser,googleSignIn } = useContext(AuthContext)
   const router = useRouter();
   const handleLogin =(e)=>{
@@ -45,8 +47,8 @@ export default function page() {
 
   };
   return (
-    <div className='my-10'>
-       <div className="card mx-auto   bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+    <div className='my-10 flex md:flex-row flex-col-reverse justify-center items-center gap-5'>
+       <div className="   bg-base-100 w-full max-w-sm shrink-0 shadow-xl">
         <h1 className='text-4xl my-3 text-center font-bold'>Login Now!</h1>
       <div className="card-body">
         <form onSubmit={handleLogin}>
@@ -56,17 +58,26 @@ export default function page() {
           <label className="label">Password</label>
           <input required name='password' type="password" className="input" placeholder="Password" />
           <div><a className="link link-hover">Forgot password?</a></div>
-          <button className="btn btn-neutral mt-4">Login</button>
+          <button className="btn bg-green-700 text-white hover:bg-green-800 rounded-md transition mt-4">Login</button>
         </fieldset>
         </form>
         <button
             onClick={handleGoogleSignIn}
-            className="btn bg-white text-black border-[#e5e5e5]"
+            className="btn bg-green-700 text-white hover:bg-green-800 rounded-md transition"
           >
-            Login with Google
+           <FcGoogle/> Login with Google
           </button>
-          <p>Don't have an account? <Link className="text-green-300 underline" href='/register'>Register Now</Link></p>
+          <p>Don't have an account? <Link className="text-green-700 underline" href='/register'>Register Now</Link></p>
       </div>
+    </div>
+    <div>
+       <Image
+      src="/login.avif"
+      alt="Login image"
+      width={400}
+      height={300}
+      priority
+    />
     </div>
     </div>
   )

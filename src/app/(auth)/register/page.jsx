@@ -4,6 +4,8 @@ import React, { useContext } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import toast from "react-hot-toast";
+import Image from "next/image";
+import { FcGoogle } from "react-icons/fc";
 
 export default function Page() {
   const { createUser, googleSignIn } = useContext(AuthContext);
@@ -48,8 +50,8 @@ export default function Page() {
   };
 
   return (
-    <div className="my-10">
-      <div className="card mx-auto bg-base-100 w-full max-w-sm shadow-2xl">
+    <div className="my-10 flex md:flex-row flex-col-reverse justify-center items-center gap-10">
+      <div className=" bg-base-100 w-full max-w-sm shadow-xl">
         <h1 className='text-4xl my-3 text-center font-bold'>Register Now!</h1>
         <div className="card-body">
           <form onSubmit={handleCreateUser}>
@@ -70,20 +72,29 @@ export default function Page() {
                 className="input"
                 placeholder="Password"
               />
-              <button className="btn btn-neutral mt-4">Register</button>
+              <button className="btn bg-green-700 text-white hover:bg-green-800 rounded-md transition mt-4">Register</button>
             </fieldset>
           </form>
 
           <button
             onClick={handleGoogleSignIn}
-            className="btn bg-white text-black border-[#e5e5e5]"
+            className="btn bg-green-700 text-white hover:bg-green-800 rounded-md transition"
           >
-            Login with Google
+           <FcGoogle/> Login with Google
           </button>
-          <p>Already have an account? <Link className="text-green-300 underline" href='/login'>Login Now</Link></p>
+          <p>Already have an account? <Link className="text-green-700 underline" href='/login'>Login Now</Link></p>
         </div>
 
       </div>
+       <div>
+             <Image
+            src="/register.webp"
+            alt="Login image"
+            width={400}
+            height={300}
+            priority
+          />
+          </div>
     </div>
   );
 }
