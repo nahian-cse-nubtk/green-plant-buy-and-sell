@@ -48,5 +48,5 @@ export default function Provider({ children }) {
     signOutUser
   };
  console.log(user)
-  return <AuthContext value={authInfo}>{children}</AuthContext>;
+  return <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>;
 }
