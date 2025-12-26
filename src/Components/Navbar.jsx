@@ -5,9 +5,10 @@ import Link from "next/link";
 import React, { useContext } from "react";
 
 import ProfileDropdown from "./ProfileDropdown";
+import Loading from "./Loading";
 
 export default function Navbar() {
-  const { user, signOutUser } = useContext(AuthContext);
+  const { user, signOutUser,loading } = useContext(AuthContext);
 
   const handleLogout = () => {
     signOutUser().then(() => {
@@ -34,6 +35,9 @@ export default function Navbar() {
       </li>
     </>
   );
+  if(loading){
+    return <Loading></Loading>
+  }
   return (
     <div className="sticky top-0 ">
       <div className="navbar  bg-linear-to-r from-green-600 from-10% via-green-500 via-30% to-emerald-400 to-90% shadow-sm">

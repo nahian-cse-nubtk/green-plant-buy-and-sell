@@ -1,18 +1,21 @@
 'use client'
+import Loading from "@/Components/Loading";
 import ProductCard from "@/Components/ProductCard";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-export default function page() {
+export default function Page() {
 
     const [products, setProducts] =useState([])
     const [productsData, setProductsData] =useState([])
+    const [loading, setLoading] = useState(true)
 
         useEffect(()=>{
             axios.get('https://green-world-rose.vercel.app/products')
             .then(res=>{
                 setProducts(res.data)
                 setProductsData(res.data)
+                setLoading(false)
             })
         },[])
 
@@ -25,6 +28,9 @@ export default function page() {
             else{
                 setProducts(productsData)
             }
+        }
+        if(loading){
+          return <Loading/>
         }
 
   return (
