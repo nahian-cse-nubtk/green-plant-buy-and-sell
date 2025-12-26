@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function ProfileDropdown({user,handleLogout}) {
   const [open, setOpen] = useState(false);
-  console.log(user)
+  
 
   return (
     <div className="relative z-50">
